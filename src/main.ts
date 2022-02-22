@@ -33,7 +33,7 @@ function fetchNewData() {
       params: { 
         vs_currency: "usd", 
         order: "market_cap_desc", 
-        per_page: 25, 
+        per_page: fetchLimit, 
         page: 1, 
         sparkline: false },
     })
