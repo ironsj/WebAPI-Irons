@@ -24,7 +24,7 @@ function removeOldData() {
 }
 
 function fetchNewData() {
-  // Use the user input to control the number of random users to fetch
+  // Use the user input to control the number of cryptocurrencies to fetch
   const fetchLimit = (limitInput as HTMLInputElement)?.value ?? 20;
   axios
     .request({
@@ -46,26 +46,27 @@ function fetchNewData() {
         aRow.setAttribute("class", "fromAPI");
         myTable?.appendChild(aRow);
 
-        // Create a table data cell to show first name and last name
+        // Create a table data cell to show name of crypto
         const nameCell = document.createElement("td");
         nameCell.innerText = `${t.name}`;
         aRow.appendChild(nameCell);
 
-        // Create a table data cell to show first name and last name
+        // Create a table data cell to show symbol for crypto
         const symbolCell = document.createElement("td");
         symbolCell.innerText = `${t.symbol.toUpperCase()}`;
         aRow.appendChild(symbolCell);
 
-        // Create a table data cell to show date of birth
+        // Create a table data cell to show current price of crypto
         const priceCell = document.createElement("td");
         priceCell.innerText = `$${t.current_price}`;
         aRow.appendChild(priceCell);
 
-        // Create a table data cell to show the picture
+        // Create a table data cell to show the market cap of crypto
         const marketCapCell = document.createElement("td");
         marketCapCell.innerText = `$${t.market_cap}`;
         aRow.appendChild(marketCapCell);
 
+        // Create a table data cell to show the rank by market cap of crypto
         const rankCell = document.createElement("td");
         rankCell.innerText = `${t.market_cap_rank}`;
         aRow.appendChild(rankCell);
@@ -98,12 +99,12 @@ function removeOldData2() {
 }
 
 function fetchNewData2() {
-  // Use the user input to control the number of random users to fetch
+  // Use the user input to fetch desired crypto
   const fetchCoin = (tokenInput as HTMLInputElement)?.value ?? "bitcoin";
   axios
     .request({
       method: "GET",
-      url: `https://api.coingecko.com/api/v3/coins/${fetchCoin}`,
+      url: `https://api.coingecko.com/api/v3/coins/${fetchCoin.toLowerCase()}`,
     })
     .then((r: AxiosResponse) => r.data)
     .then((myData: TokenStats) => {
@@ -116,31 +117,41 @@ function fetchNewData2() {
       const imgCell = document.createElement("td")
       aRow.appendChild(imgCell);
       const image = document.createElement("img");
-      image.setAttribute("src", myData.image.thumb);
+      image.setAttribute("src", myData.image.small);
       imgCell.appendChild(image);
 
-      // Create a table data cell to show first name and last name
+      // Create a table data cell to show name of crypto
       const nameCell = document.createElement("td");
       nameCell.innerText = `${myData.name}`;
       aRow.appendChild(nameCell);
 
-      // Create a table data cell to show first name and last name
+      // Create a table data cell to show symbol of crypto
       const symbolCell = document.createElement("td");
       symbolCell.innerText = `${myData.symbol.toUpperCase()}`;
       aRow.appendChild(symbolCell);
 
+      // Create a table data cell to show the current price of crypto
       const priceCell = document.createElement("td");
       priceCell.innerText = `$${myData.market_data.current_price.usd}`;
       aRow.appendChild(priceCell);
 
+      // Create a table data cell to show the percent change of price in 24 hrs
       const percentCell = document.createElement("td");
-      percentCell.innerText = `${(myData.market_data.price_change_percentage_24h_in_currency.usd * 100).toFixed(2)}%`;
+      if(myData.market_data.price_change_percentage_24h >= 0){
+        percentCell.setAttribute("class", "positive")
+      }
+      else{
+        percentCell.setAttribute("class", "negative")
+      }
+      percentCell.innerText = `${(myData.market_data.price_change_percentage_24h).toFixed(2)}%`;
       aRow.appendChild(percentCell);
 
+      // Create a table data cell to show the all time high
       const athCell = document.createElement("td");
       athCell.innerText = `$${myData.market_data.ath.usd}`;
       aRow.appendChild(athCell);
 
+      // Create a table data cell to show the market cap
       const marketCapCell = document.createElement("td");
       marketCapCell.innerText = `$${myData.market_data.market_cap.usd}`;
       aRow.appendChild(marketCapCell);

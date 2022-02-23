@@ -1,22 +1,88 @@
 table {
-  border: 2px solid blue;
+  border: hsl(86, 54%, 51%);
 }
 
 table tr:nth-child(odd) {
-  background-color: hsl(120, 80%, 30%);
-}
-table tr > td:last-child {
-  background-color: white;
+  background-color: hsl(0, 0%, 40%);
 }
 
 table tr:nth-child(even) {
-  background-color: hsl(120, 80%, 70%);
+  background-color: hsl(0, 0%, 27%);
 }
 
 table tr:first-child {
-  background-color: hsl(60, 0%, 80%);
+  background-color: hsl(86, 54%, 51%);
+}
+
+table:first-of-type tr:first-child > th:first-child {
+  background-color: hsl(0, 0%, 12%);
+}
+
+table:first-of-type tr:last-child > td:first-of-type {
+  background-color: hsl(0, 0%, 12%);
+}
+
+input[type="button"] {
+  background-color: hsl(86, 54%, 51%);
+  color: white;
+}
+
+input {
+  margin-bottom: 5px;
 }
 
 code {
   font-size: 125%;
+}
+
+body {
+  background-color: hsl(0, 0%, 12%);
+  color: white;
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  align-items: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+a:link {
+  color: hsl(86, 54%, 51%);
+}
+
+.positive {
+  color: green;
+}
+
+td[class="negative"] {
+  color: red;
+}
+
+input:in-range {
+  color: green;
+}
+
+input:nth-of-type(3):out-of-range {
+  color: red;
+}
+
+p:last-of-type {
+  font-style: italic;
+  font-size: smaller;
+}
+
+p:first-of-type > small > a:hover {
+  color: yellow;
+}
+
+p:last-of-type > a:hover {
+  color: yellow;
+}
+
+h3 {
+  color: hsl(86, 54%, 51%);
+}
+
+a:visited {
+  color: darkgray;
 }

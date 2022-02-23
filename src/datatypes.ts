@@ -26,9 +26,7 @@ type TokenStats = {
     market_cap: {
       usd: number;
     };
-    price_change_percentage_24h_in_currency: {
-      usd: number;
-    }
+    price_change_percentage_24h: number;
   };
 };
 

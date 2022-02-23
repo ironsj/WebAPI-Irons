@@ -10,22 +10,11 @@
 </head>
 
 <body>
-  <h1>Crypto Market</h1>
-  <p>Data source <a href="https://www.coingecko.com/en/api"><code>https://www.coingecko.com/en/api</code></a></p>
-  <input id="input1" type="number" min="1" max="250" value="20">
-  <input id="btn1" type="button" value="Fetch">
-  <table id="mars">
-    <!-- data will be generated from code -->
-    <tr>
-      <th>Name</th>
-      <th>Symbol</th>
-      <th>Price</th>
-      <th>Market Cap</th>
-      <th>Rank (By Market Cap)</th>
-    </tr>
-  </table>
-
-  <input id="input2" type="string" value="bitcoin">
+  <h1 id="title">Crypto Market</h1>
+  <h3>Coin (e.g. 'Cardano') </h3>
+  <p><small> Full list of coin ID's can be found at <a
+    href="https://api.coingecko.com/api/v3/coins/list"> https://api.coingecko.com/api/v3/coins/list</a></small></p>
+  <input id="input2" type="string" value="Bitcoin">
   <input id="btn2" type="button" value="Fetch">
   <table id="coin">
     <tr>
@@ -38,6 +27,22 @@
       <th>Market Cap</th>
     </tr>
   </table>
+
+  <h3># of Coins (Ranked by Market Cap)</h3>
+  <p><small> Keep input 250 and under</small></p>
+  <input id="input1" type="number" min="1" max="250" value="10">
+  <input id="btn1" type="button" value="Fetch">
+  <table id="mars">
+    <!-- data will be generated from code -->
+    <tr>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Price</th>
+      <th>Market Cap</th>
+      <th>Rank (By Market Cap)</th>
+    </tr>
+  </table>
+  <p>Data source <a href="https://www.coingecko.com/en/api"><code>https://www.coingecko.com/en/api</code></a></p>
   <script src="main.ts" type="module"></script>
 </body>
 
