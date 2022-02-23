@@ -12,7 +12,7 @@
 <body>
   <h1>Crypto Market</h1>
   <p>Data source <a href="https://www.coingecko.com/en/api"><code>https://www.coingecko.com/en/api</code></a></p>
-  <input id="input1" type="number" min="1" max="20" value="20">
+  <input id="input1" type="number" min="1" max="250" value="20">
   <input id="btn1" type="button" value="Fetch">
   <table id="mars">
     <!-- data will be generated from code -->
@@ -22,6 +22,20 @@
       <th>Price</th>
       <th>Market Cap</th>
       <th>Rank (By Market Cap)</th>
+    </tr>
+  </table>
+
+  <input id="input2" type="string" value="bitcoin">
+  <input id="btn2" type="button" value="Fetch">
+  <table id="coin">
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Price</th>
+      <th>24hr</th>
+      <th>All Time High</th>
+      <th>Market Cap</th>
     </tr>
   </table>
   <script src="main.ts" type="module"></script>

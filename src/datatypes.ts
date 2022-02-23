@@ -1,7 +1,3 @@
-type RankByMarketCap = {
-  results: Array<Token>;
-};
-
 // Define the type User to match the JSON structure from https://randomuser.me/api
 type Token = {
   name: string;
@@ -12,4 +8,28 @@ type Token = {
   image: string;
 };
 
-export { RankByMarketCap, Token };
+type TokenStats = {
+  image: {
+    thumb: string;
+    small: string;
+    large: string;
+  };
+  name: string;
+  symbol: string;
+  market_data: {
+    current_price: {
+      usd: number;
+    };
+    ath: {
+      usd: number;
+    };
+    market_cap: {
+      usd: number;
+    };
+    price_change_percentage_24h_in_currency: {
+      usd: number;
+    }
+  };
+};
+
+export { Token, TokenStats };
